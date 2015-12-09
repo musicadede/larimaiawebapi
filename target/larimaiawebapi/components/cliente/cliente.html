@@ -1,0 +1,55 @@
+<section ng-controller="ClienteController">
+
+<form>
+
+
+    <md-input-container>
+        <label>Nome: </label>
+        <input type="text" class="form-control" ng-model="cliente.nome"/>
+    </md-input-container>
+
+
+    <md-input-container>
+        <label>E-mail: </label>
+        <input ng-model="cliente.email" type="email"/>
+    </md-input-container>
+
+    <md-input-container>
+        <label>Telefone: </label>
+        <input ng-model="cliente.telefone" type="tel"/>
+    </md-input-container>
+
+        <label>Estados: </label>
+        <select ng-model="estado"  ng-options="estado.nome for estado in estados">
+            <option value="">Escolha um Estado</option>
+        </select>
+
+        <br>
+        <br>
+
+    <md-button class="md-raised md-primary" ng-click="salvar()"> Salvar</md-button>
+
+</form>
+<div ng-cloak>
+    <md-content>
+        <md-list>
+            <md-list-item class="md-3-line md-long-text" ng-repeat="cliente in clientes">
+
+                <div class="md-list-item-text">
+                    {{"ID:"+cliente.idCliente + " / "+ "Nome:"+cliente.nome + " / " + "E-mail:"+cliente.email + " / " +"Telefone:"+cliente.telefone + " / " +"Estado:"+cliente.estado.nome  }}
+
+
+                    <button ng-click="excluir(cliente.idCliente)"> Excluir</button>
+                    <button ng-click="editar(cliente)"> Editar</button>
+
+                </div>
+
+
+            </md-list-item>
+        </md-list>
+    </md-content>
+</div>
+
+
+</section>
+

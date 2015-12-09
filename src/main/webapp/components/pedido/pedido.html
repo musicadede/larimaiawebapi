@@ -1,0 +1,118 @@
+<section  ng-controller="PedidoController">
+<form>
+
+
+    <h1 >Lari Maia - Pedido</h1>
+
+
+    <div >
+        <div >
+            <div >
+                <label >Origem do Pedido: </label>
+                <input ng-model="pedido.origemPedido"/>
+                <br>
+
+                <label>Data do Pedido: </label>
+                <input ng-model="pedido.dataPedido"/>
+                <br>
+
+                <label>Cliente: </label>
+                <select ng-model="clienteSelec"  ng-options="cliente.nome for cliente in clientes">
+                    <option value="">Escolha um cliente</option>
+                </select>
+                <br>
+                <br>
+
+                <label>Indica&ccedil;&atilde;o: </label>
+                <input ng-model="pedido.indicacao" />
+                <br>
+
+                <label>Observa&ccedil;&otilde;es: </label>
+                <textarea ng-model="pedido.observacao"></textarea>
+                <br>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+
+    <div >
+
+        <label>Cerimonial: </label>
+        <input ng-model="pedido.cerimonial" />
+        <br>
+
+        <label>Data do Evento: </label>
+        <input ng-model="pedido.dataEvento" />
+        <br>
+
+        <label>Tipo do Evento: </label>
+        <select ng-model="tipoeventoSelec"  ng-options="tipoevento.descricao for tipoevento in tipoeventos">
+            <option value="">Escolha um Tipo Evento</option>
+        </select>
+        <br>
+
+        <label>Horario do Evento: </label>
+        <input ng-model="pedido.horaEvento" />
+        <br>
+
+        <label>Local do Evento: </label>
+        <input ng-model="pedido.localEvento"/>
+        <br>
+
+        <label>Endere&ccedil;o: </label>
+        <input ng-model="pedido.endereco" />
+        <br>
+        <br>
+        <label> Produto  </label>
+
+        <br>
+
+        <select ng-model="produtoSelec"  ng-options="produto.descricao for produto in produtos">
+            <option value="">Escolha um produto</option>
+
+        </select>
+
+        <label> Quantidade </label>
+        <input ng-model="qtd">
+        <button ng-click="adicionar()">Adicionar </button>
+
+        <br>
+        <br>
+
+        <div ng-cloak>
+        <md-content>
+        <md-list>
+            <md-subheader class="md-no-sticky">Itens do Pedido</md-subheader>
+            <md-list-item ng-repeat="item in itens track by $index">
+                <div class="md-list-item-text">
+                {{item.idProduto.descricao+"  -  "+item.quantidade+"  -  "+item.valorItem}} <button ng-click="excluir(item)"> Excluir</button>
+                </div>
+            </md-list-item>
+        </md-list>
+        </md-content>
+        </div>
+    <br>
+    <br>
+
+    <label>Valor Total: </label>{{total}}
+
+
+    <br>
+    <br>
+    <br>
+    <button ng-click="salvar()">Salvar</button>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    </div>
+
+</form>
+</section>
+

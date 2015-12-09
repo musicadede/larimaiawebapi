@@ -1,0 +1,50 @@
+<section ng-controller="estadoController">
+
+<!--    <div ng-cloak align='center'>-->
+    <form>
+        <div ng-cloak align='center'>
+            <h2 align="center">Cadastro de Estado</h2>
+
+            <md-input-container>
+                <label>Nome</label>
+                <input align="middle" type="text" ng-model="estado.nome"/>
+            </md-input-container>
+
+            <md-input-container>
+                <label>UF</label>
+                <input align="middle" type="text" ng-model="estado.UF"/>
+            </md-input-container>
+
+
+            <md-button class="md-raised md-primary" ng-click="salvar()" style="text-align: center">Salvar</md-button>
+            <md-button class="md-raised md-primary" ng-click="limpar()" style="text-align: center">Limpar</md-button>
+
+        </div>
+    </form>
+
+    <h3 align="center">Lista de Estado</h3>
+
+
+        <div ng-cloak>
+            <md-content>
+                <md-list>
+                    <md-list-item class="md-3-line md-long-text" ng-repeat="estado in listaEstado">
+
+                        <div class="md-list-item-text">
+                            {{"estado:"+estado.nome+ " / "+ "estado:"+estado.uf}}
+
+
+                            <button ng-click="excluir(estado.id)"> Excluir</button>
+                            <button ng-click="editar(estado)"> Editar</button>
+
+                        </div>
+
+
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+
+
+
+</section>
